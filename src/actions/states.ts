@@ -7,6 +7,7 @@ interface ContestantDto {
   email: string;
   state: string;
 }
+//
 
 const getStates = async () => {
   try {
