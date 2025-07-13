@@ -1,0 +1,118 @@
+/* YouTube Player Responsive Styles */
+.youtube-player {
+  width: 100%;
+  max-width: 500px;
+}
+
+.youtube-player iframe {
+  width: 100% !important;
+  height: 200px !important;
+}
+
+@media (min-width: 640px) {
+  .youtube-player iframe {
+    height: 240px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .youtube-player iframe {
+    height: 280px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .youtube-player iframe {
+    height: 320px !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .youtube-player iframe {
+    height: 350px !important;
+  }
+}
+
+/* Custom styles for slick carousel */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: rgba(242, 183, 0, 0.9);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba(242, 183, 0, 1);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  opacity: 1;
+  color: black;
+  font-weight: bold;
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -45px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 12px;
+  height: 12px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.slick-dots li.slick-active button {
+  background: #f2b700;
+}
