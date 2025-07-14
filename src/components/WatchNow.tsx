@@ -51,7 +51,7 @@ function WatchNow() {
   //       thumbnail: "https://img.youtube.com/vi/L_jWHffIx5E/maxresdefault.jpg",
   //     },
   //   ];
-  const [currentVideoId, setCurrentVideoId] = useState(videos[0].videoId);
+  const [currentVideoId, setCurrentVideoId] = useState(videos[0]?.videoId);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const handleVideoSelect = (videoId: string, index: number) => {
