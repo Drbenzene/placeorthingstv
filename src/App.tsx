@@ -32,7 +32,8 @@ function App() {
           SPONSORS
         </a>
       </div>
-
+      //add some black overlay shadow to the background sides of the background
+      image
       <section className="w-full bg-black max-w-4xl">
         <div
           className="width-24 bg-cover w-screen md:h-[90vh] h-auto"
@@ -122,9 +123,7 @@ function App() {
           Peterman.
         </p>
       </section>
-
       {/* //BECOME A CONTESTANT SECTION */}
-
       <BeAContestant />
       <section
         id="where-to-watch"
