@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import WhereToWatch from "./components/WhereToWatch";
 import BeAContestant from "./components/BeAContestant";
+import WatchNow from "./components/WatchNow";
 
 function App() {
   const headerMenu = [
@@ -124,6 +125,7 @@ function App() {
         </p>
       </section>
       {/* //BECOME A CONTESTANT SECTION */}
+      <WatchNow />
       <BeAContestant />
       <section
         id="where-to-watch"
