@@ -16,7 +16,8 @@ const getStates = async () => {
     return response.data;
   } catch (error) {
     console.error("Error fetching states:", error);
-    throw error;
+    return;
+    // throw error;
   }
 };
 
@@ -27,7 +28,7 @@ const getVideos = async () => {
     return response.data;
   } catch (error) {
     console.error("Error fetching states:", error);
-    throw error;
+    // throw error;
   }
 };
 
@@ -38,7 +39,7 @@ const getStations = async () => {
     return response.data;
   } catch (error) {
     console.error("Error fetching stations:", error);
-    throw error;
+    // throw error;
   }
 };
 
@@ -51,7 +52,7 @@ const addContestant = async (contestantData: ContestantDto) => {
     return response.data;
   } catch (error) {
     console.error("Error adding contestant:", error);
-    throw error;
+    // throw error;
   }
 };
 
