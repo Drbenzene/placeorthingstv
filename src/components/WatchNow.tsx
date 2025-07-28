@@ -116,7 +116,7 @@ function WatchNow() {
             ></div>
 
             {/* Animated Header */}
-            <div className="absolute text-center w-1/2 top-0 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-300 hover:scale-110">
+            <div className="absolute text-center w-1/2 top-0 left-1/2 transform -translate-x-1/2 z-30 transition-all duration-300 hover:scale-110">
               <p
                 className="bg-[#FFAA00] px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition-all duration-300 text-xs sm:text-base lg:text-xl text-white text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-gradient-to-r hover:from-amber-400 hover:to-yellow-500 hover:shadow-lg whitespace-nowrap flex-shrink-0 animate-pulse"
                 style={{
@@ -132,7 +132,7 @@ function WatchNow() {
 
             {/* Loading Animation Overlay */}
             <div
-              className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 z-10"
+              className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 z-25 pointer-events-none"
               id="video-loading"
             >
               <div className="w-16 h-16 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
@@ -141,7 +141,7 @@ function WatchNow() {
             <YouTube
               videoId={currentVideoId}
               opts={opts}
-              className="absolute inset-0 w-full h-full transition-all duration-500"
+              className="absolute inset-0 w-full h-full transition-all duration-500 z-10"
               style={{
                 width: "100%",
                 height: "100%",
@@ -158,12 +158,12 @@ function WatchNow() {
               }}
             />
 
-            {/* Floating Particles */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Floating Particles - Lower z-index and pointer-events-none */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-5">
               {[...Array(6)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-2 h-2 bg-amber-400 rounded-full opacity-30"
+                  className="absolute w-2 h-2 bg-amber-400 rounded-full opacity-30 pointer-events-none"
                   style={{
                     left: `${20 + i * 15}%`,
                     top: `${20 + (i % 3) * 30}%`,
