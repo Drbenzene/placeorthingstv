@@ -34,7 +34,7 @@ function WhereToWatch() {
   return (
     <div className="max-w-4xl mx-auto text-center">
       <p
-        className="inline-block mt-5 bg-amber-600 px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-black text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap mb-8"
+        className="inline-block mt-5 bg-[#FFAA00] text-white px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap mb-8"
         style={{
           clipPath: "polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%)",
           textShadow: "1px 1px 2px rgba(0, 0, 0, 0.4)",
@@ -54,9 +54,9 @@ function WhereToWatch() {
 
         <div className="hidden lg:flex flex-col items-center mx-8">
           <div className="h-40 w-0.5 bg-white"></div>
-          <div className="bg-[#2C9AB5] p-2 rounded-full my-2">
+          <div className="bg-[#FFAA00] p-2 rounded-full my-2">
             <svg
-              className="w-6 h-6 text-black"
+              className="w-6 h-6 text-white"
               fill="currentColor"
               viewBox="0 0 24 24"
             >

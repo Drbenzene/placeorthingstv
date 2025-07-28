@@ -33,7 +33,7 @@ function BeAContestant() {
       id="be-a-contestant"
       className="w-full md:h-[80vh] h-auto bg-cover px-4"
       style={{
-        backgroundImage: `url(/images/hero-bg.png)`,
+        backgroundImage: `url(/images/bg-45.png)`,
       }}
     >
       <div>
@@ -150,9 +150,9 @@ function BeAContestant() {
             </div>
           )}
         </Formik>
-        <div className=" right-0 absolute hidden  -top-10  md:flex items-start justify-center">
+        <div className=" right-0 absolute hidden  md:flex items-start justify-center">
           <img
-            src="/images/contestant-host.png"
+            src="/images/host.png"
             alt="Contestant Host"
             className="h-full  w-auto object-top object-cover"
           />
