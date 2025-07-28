@@ -109,10 +109,10 @@ function WhereToWatch() {
                     ) => (
                       <div key={`${station.id}-${index}`}>
                         <div className="flex justify-between  font-semibold text-xs lg:text-sm uppercase border-b border-gray-600 pb-2">
-                          <span className="flex-1 text-start text-[#2B9BB5]">
+                          <span className="flex-1 text-start text-[#450000]">
                             CITY
                           </span>
-                          <span className="flex-1 text-start text-[#2B9BB5]">
+                          <span className="flex-1 text-start text-[#450000]">
                             STATION/TIME
                           </span>
                         </div>
@@ -149,8 +149,8 @@ function WhereToWatch() {
               </h4>
               <div className="space-y-4">
                 <div className="flex justify-between  font-semibold text-xs lg:text-sm uppercase border-b border-gray-600 pb-2">
-                  <span className="flex-1 text-start text-[#2B9BB5]">CITY</span>
-                  <span className="flex-1 text-start text-[#2B9BB5]">
+                  <span className="flex-1 text-start text-white">CITY</span>
+                  <span className="flex-1 text-start text-white">
                     STATION/TIME
                   </span>
                 </div>

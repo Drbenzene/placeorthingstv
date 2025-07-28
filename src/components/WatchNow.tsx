@@ -16,41 +16,6 @@ const videoPromises = getVideos();
 function WatchNow() {
   const videoResponses = use(videoPromises);
   const videos = videoResponses?.data || [];
-
-  console.log("Available videos:", videos);
-
-  //   const videos = [
-  //     {
-  //       id: "dQw4w9WgXcQ",
-  //       title: "Episode 1: Getting Started",
-  //       thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-  //     },
-  //     {
-  //       id: "9bZkp7q19f0",
-  //       title: "Episode 2: Advanced Techniques",
-  //       thumbnail: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
-  //     },
-  //     {
-  //       id: "kJQP7kiw5Fk",
-  //       title: "Episode 3: Expert Tips",
-  //       thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
-  //     },
-  //     {
-  //       id: "8UVNT4wvIGY",
-  //       title: "Episode 4: Behind the Scenes",
-  //       thumbnail: "https://img.youtube.com/vi/8UVNT4wvIGY/maxresdefault.jpg",
-  //     },
-  //     {
-  //       id: "ZbZSe6N_BXs",
-  //       title: "Episode 5: Special Edition",
-  //       thumbnail: "https://img.youtube.com/vi/ZbZSe6N_BXs/maxresdefault.jpg",
-  //     },
-  //     {
-  //       id: "L_jWHffIx5E", // Replace with actual video ID
-  //       title: "Episode 6: Season Finale",
-  //       thumbnail: "https://img.youtube.com/vi/L_jWHffIx5E/maxresdefault.jpg",
-  //     },
-  //   ];
   const [currentVideoId, setCurrentVideoId] = useState(videos[0]?.videoId);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
@@ -60,8 +25,8 @@ function WatchNow() {
   };
 
   const opts = {
-    height: "400",
-    width: "9000",
+    height: "100%",
+    width: "100%",
     playerVars: {
       autoplay: 1,
       controls: 1,
@@ -71,6 +36,10 @@ function WatchNow() {
       cc_load_policy: 0,
       iv_load_policy: 3,
       autohide: 0,
+    },
+    style: {
+      width: "100%",
+      height: "100%",
     },
   };
 
@@ -127,23 +96,9 @@ function WatchNow() {
       <div className="max-w-6xl mx-auto">
         {/* Main Video Player */}
         <div className="flex justify-center mb-8 relative">
-          {/* Left Arrow - positioned very close to the amber border */}
-          {/* <button
-              onClick={() => {
-                const prevIndex =
-                  currentVideoIndex > 0
-                    ? currentVideoIndex - 1
-                    : videos.length - 1;
-                handleVideoSelect(videos[prevIndex].id, prevIndex);
-              }}
-              className="absolute top-1/2 transform -translate-y-1/2 left-[-45px] z-10 w-12 h-12 bg-amber-600 hover:bg-amber-500 rounded-full flex items-center justify-center text-black font-bold transition-all duration-300 shadow-lg"
-            >
-              &#8249;
-            </button> */}
-
-          <div className="relative w-full max-w-2xl p-6 flex justify-center items-center rounded-lg overflow-hidden shadow-2xl bg-black border-8 border-amber-400">
+          <div className="relative w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-2xl bg-black border-8 border-amber-400">
             <p
-              className="absolute  text-center w-1/2 top-0 z-10 bg-amber-600 px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-black text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap flex-shrink-0"
+              className="absolute text-center w-1/2 top-0 left-1/2 transform -translate-x-1/2 z-20 bg-[#FFAA00] px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-white text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap flex-shrink-0"
               style={{
                 clipPath:
                   "polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%)",
@@ -155,7 +110,16 @@ function WatchNow() {
             <YouTube
               videoId={currentVideoId}
               opts={opts}
-              className="youtube-player w-full h-full"
+              className="absolute inset-0 w-full h-full"
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+              }}
             />
           </div>
 

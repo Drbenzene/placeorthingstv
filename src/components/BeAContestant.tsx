@@ -38,7 +38,7 @@ function BeAContestant() {
     >
       <div>
         <p
-          className="absolute  left-1/3 text-center z-10 bg-amber-600 px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-black text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap flex-shrink-0"
+          className="absolute  left-1/3 text-center z-10 bg-amber-600 px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-white text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap flex-shrink-0"
           style={{
             clipPath:
               "polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%)",
