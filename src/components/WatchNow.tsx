@@ -111,8 +111,17 @@ function WatchNow() {
     <section
       id="watch-now"
       className="w-full min-h-[60vh] bg-cover py-8 px-4 "
+      // style={{
+      //   backgroundImage: `url(/images/player-background.9ef2f5d4d394f763.jpg)`,
+      // }}
       style={{
-        backgroundImage: `url(/images/player-background.9ef2f5d4d394f763.jpg)`,
+        background: `linear-gradient(100deg, 
+              #591D0C 0%, 
+              #6C2F13 20%, 
+              #83461B 40%, 
+              #935622 60%, 
+              #AA6C2A 80%, 
+              #B2742D 100%)`,
       }}
     >
       <div className="max-w-6xl mx-auto">

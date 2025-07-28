@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="mt-12 pt-8  border-t border-gray-700 bg-[rgb(1,24,32)] ">
+    <div className="mt-12 pt-8  border-t border-gray-700 bg-black">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex justify-center items-center gap-6 flex-wrap">
           {/* Facebook */}
@@ -102,24 +102,24 @@ function Footer() {
 
         {/* Privacy Links */}
         <div className="mt-8 pt-6 border-t border-gray-800">
-          <div className="flex uppercase justify-center text-[rgb(32,141,197)] items-center gap-4 flex-wrap mb-4">
+          <div className="flex uppercase justify-center text-white items-center gap-4 flex-wrap mb-4">
             <a
               href="/privacy-policy"
-              className="text-[rgb(32,141,197)] hover:text-white text-sm transition-colors duration-300"
+              className=" hover:text-white text-sm transition-colors duration-300"
             >
               Privacy Policy
             </a>
-            <span className="text-[rgb(32,141,197)] text-sm">|</span>
+            <span className=" text-sm">|</span>
             <a
               href="/terms-of-use"
-              className="ttext-[rgb(32,141,197)] hover:text-white text-sm transition-colors duration-300"
+              className=" hover:text-white text-sm transition-colors duration-300"
             >
               Terms of Use
             </a>
-            <span className="text-[rgb(32,141,197)] text-sm">|</span>
+            <span className=" text-sm">|</span>
             <a
               href="/privacy-choices"
-              className="text-[rgb(32,141,197)] hover:text-white text-sm transition-colors duration-300"
+              className=" hover:text-white text-sm transition-colors duration-300"
             >
               Your Privacy Choices
             </a>

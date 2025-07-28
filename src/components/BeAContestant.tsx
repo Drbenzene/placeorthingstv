@@ -33,7 +33,7 @@ function BeAContestant() {
       id="be-a-contestant"
       className="w-full md:h-[80vh] h-auto bg-cover px-4"
       style={{
-        backgroundImage: `url(/images/hero-bg.jpg)`,
+        backgroundImage: `url(/images/hero-bg.png)`,
       }}
     >
       <div>
@@ -48,7 +48,7 @@ function BeAContestant() {
           BE A CONTESTANT
         </p>
       </div>
-      <div className="max-w-4xl relative pt-16 flex flex-col md:flex-row w-full justify-between items-start mx-auto text-center bg-[#002C41] bg-opacity-80 p-6 shadow-lg ">
+      <div className="max-w-4xl relative pt-16 flex flex-col md:flex-row w-full justify-between items-start mx-auto text-center bg-[#151A5C] bg-opacity-80 p-6 shadow-lg ">
         <Formik
           initialValues={{
             firstName: "",
@@ -89,8 +89,8 @@ function BeAContestant() {
             handleSubmit,
           }) => (
             <div className="flex flex-col space-y-4 w-full max-w-md">
-              <p className="text-white text-sx font-extrabold text-start">
-                Person, Place or Thing wants to give you the opportunity to be a
+              <p className="text-white text-sx  text-start">
+                Weekend Kpaje wants to give you the opportunity to be a
                 contestant. Fill out your details for a chance to be selected
               </p>
               <form
