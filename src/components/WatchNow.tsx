@@ -96,21 +96,52 @@ function WatchNow() {
       <div className="max-w-6xl mx-auto">
         {/* Main Video Player */}
         <div className="flex justify-center mb-8 relative">
-          <div className="relative w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-2xl bg-black border-8 border-amber-400">
-            <p
-              className="absolute text-center w-1/2 top-0 left-1/2 transform -translate-x-1/2 z-20 bg-[#FFAA00] px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-white text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap flex-shrink-0"
-              style={{
-                clipPath:
-                  "polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%)",
-                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.4)",
-              }}
+          <div className="relative w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-2xl bg-black border-8 border-amber-400 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl group">
+            {/* Glow Effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 animate-pulse"></div>
+
+            {/* Animated Corner Accents */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-amber-300 transform -translate-x-1 -translate-y-1 opacity-0 group-hover:opacity-100 transition-all duration-300 animate-bounce"></div>
+            <div
+              className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-amber-300 transform translate-x-1 -translate-y-1 opacity-0 group-hover:opacity-100 transition-all duration-300 animate-bounce"
+              style={{ animationDelay: "0.1s" }}
+            ></div>
+            <div
+              className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-amber-300 transform -translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 transition-all duration-300 animate-bounce"
+              style={{ animationDelay: "0.2s" }}
+            ></div>
+            <div
+              className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-amber-300 transform translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 transition-all duration-300 animate-bounce"
+              style={{ animationDelay: "0.3s" }}
+            ></div>
+
+            {/* Animated Header */}
+            <div className="absolute text-center w-1/2 top-0 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-300 hover:scale-110">
+              <p
+                className="bg-[#FFAA00] px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition-all duration-300 text-xs sm:text-base lg:text-xl text-white text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-gradient-to-r hover:from-amber-400 hover:to-yellow-500 hover:shadow-lg whitespace-nowrap flex-shrink-0 animate-pulse"
+                style={{
+                  clipPath:
+                    "polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%)",
+                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.4)",
+                  animation: "pulseGlow 2s ease-in-out infinite",
+                }}
+              >
+                WATCH NOW
+              </p>
+            </div>
+
+            {/* Loading Animation Overlay */}
+            <div
+              className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 z-10"
+              id="video-loading"
             >
-              WATCH NOW
-            </p>
+              <div className="w-16 h-16 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+
             <YouTube
               videoId={currentVideoId}
               opts={opts}
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0 w-full h-full transition-all duration-500"
               style={{
                 width: "100%",
                 height: "100%",
@@ -120,7 +151,28 @@ function WatchNow() {
                 right: 0,
                 bottom: 0,
               }}
+              onReady={() => {
+                // Hide loading animation when video is ready
+                const loadingEl = document.getElementById("video-loading");
+                if (loadingEl) loadingEl.style.opacity = "0";
+              }}
             />
+
+            {/* Floating Particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-2 h-2 bg-amber-400 rounded-full opacity-30"
+                  style={{
+                    left: `${20 + i * 15}%`,
+                    top: `${20 + (i % 3) * 30}%`,
+                    animation: `floatParticle ${4 + i}s ease-in-out infinite`,
+                    animationDelay: `${i * 0.5}s`,
+                  }}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Right Arrow - positioned very close to the amber border */}
@@ -148,29 +200,45 @@ function WatchNow() {
                     <div key={video.id} className="px-2">
                       <div
                         onClick={() => handleVideoSelect(video.videoId, index)}
-                        className={`cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+                        className={`cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group ${
                           currentVideoIndex === index
-                            ? " border-4 border-amber-400 shadow-xl"
-                            : "hover:shadow-lg"
+                            ? "border-4 border-amber-400 shadow-2xl scale-105 -translate-y-1"
+                            : "hover:shadow-xl"
                         }`}
                       >
                         <div className="relative bg-black rounded-lg overflow-hidden">
+                          {/* Hover Glow Effect */}
+                          <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-lg blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+
                           <img
                             src={video.thumbnail}
                             alt={video.title}
-                            className="w-full h-32 sm:h-40 object-cover"
+                            className="relative w-full h-32 sm:h-40 object-cover transition-all duration-500 group-hover:scale-110"
                           />
 
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3">
-                            <h3 className="text-white text-xs sm:text-sm font-semibold truncate">
+                          {/* Play Button Overlay */}
+                          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-all duration-300 animate-pulse shadow-lg">
+                              <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                            </div>
+                          </div>
+
+                          {/* Active Video Indicator */}
+                          {currentVideoIndex === index && (
+                            <div className="absolute top-2 right-2 w-4 h-4 bg-green-500 rounded-full animate-ping"></div>
+                          )}
+
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                            <h3 className="text-white text-xs sm:text-sm font-semibold truncate font-secondary">
                               {video.title}
                             </h3>
+                            <div className="w-0 group-hover:w-full h-0.5 bg-amber-400 transition-all duration-500 mt-1"></div>
                           </div>
-                          {/* <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
-                              <div className="w-0 h-0 border-l-[8px] border-l-black border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1"></div>
-                            </div>
-                          </div> */}
+
+                          {/* Selection Border Animation */}
+                          {currentVideoIndex === index && (
+                            <div className="absolute inset-0 border-2 border-amber-400 rounded-lg animate-pulse"></div>
+                          )}
                         </div>
                       </div>
                     </div>
