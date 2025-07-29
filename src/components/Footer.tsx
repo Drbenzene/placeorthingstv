@@ -126,8 +126,8 @@ function Footer() {
           </div>
 
           <p className="text-gray-400 text-xs mb-6">
-            © Copyright © 2025-{new Date().getFullYear()}. People Place
-            Productions, Inc.
+            © Copyright 2024-{new Date().getFullYear()} Weekend Kpaje Game Show.
+            All rights reserved.
           </p>
 
           {/* Nigerian Flag */}

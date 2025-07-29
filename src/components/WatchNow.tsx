@@ -53,6 +53,13 @@ function WatchNow() {
     arrows: false,
     responsive: [
       {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
@@ -67,9 +74,16 @@ function WatchNow() {
         },
       },
       {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -174,30 +188,16 @@ function WatchNow() {
               ))}
             </div>
           </div>
-
-          {/* Right Arrow - positioned very close to the amber border */}
-          {/* <button
-              onClick={() => {
-                const nextIndex =
-                  currentVideoIndex < videos.length - 1
-                    ? currentVideoIndex + 1
-                    : 0;
-                handleVideoSelect(videos[nextIndex].id, nextIndex);
-              }}
-              className="absolute top-1/2 transform -translate-y-1/2 right-[-45px] z-10 w-12 h-12 bg-amber-600 hover:bg-amber-500 rounded-full flex items-center justify-center text-black font-bold transition-all duration-300 shadow-lg"
-            >
-              &#8250;
-            </button> */}
         </div>
 
         {/* Video Navigation with Arrows */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-6xl mx-auto px-2 sm:px-4">
           <div className="flex items-center">
-            <div className="w-full px-4">
+            <div className="w-full">
               <Slider {...sliderSettings}>
                 {videos &&
                   videos?.map((video: VideoDto, index: number) => (
-                    <div key={video.id} className="px-2">
+                    <div key={video.id} className="px-1 sm:px-2">
                       <div
                         onClick={() => handleVideoSelect(video.videoId, index)}
                         className={`cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group ${
@@ -206,30 +206,33 @@ function WatchNow() {
                             : "hover:shadow-xl"
                         }`}
                       >
-                        <div className="relative bg-black rounded-lg overflow-hidden">
+                        <div className="relative bg-black rounded-lg overflow-hidden mx-1">
                           {/* Hover Glow Effect */}
-                          <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-lg blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-lg blur opacity-0 group-hover:opacity-50 transition-all duration-300 pointer-events-none"></div>
 
-                          <img
-                            src={video.thumbnail}
-                            alt={video.title}
-                            className="relative w-full h-32 sm:h-40 object-cover transition-all duration-500 group-hover:scale-110"
-                          />
+                          <div className="relative w-full h-40 sm:h-48 md:h-52 lg:h-56">
+                            <img
+                              src={video.thumbnail}
+                              alt={video.title}
+                              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                            />
+                          </div>
 
                           {/* Play Button Overlay */}
-                          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-all duration-300 animate-pulse shadow-lg">
-                              <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-all duration-300 animate-pulse shadow-lg">
+                              <div className="w-0 h-0 border-l-[8px] sm:border-l-[12px] border-l-white border-t-[6px] sm:border-t-[8px] border-t-transparent border-b-[6px] sm:border-b-[8px] border-b-transparent ml-1"></div>
                             </div>
                           </div>
 
                           {/* Active Video Indicator */}
                           {currentVideoIndex === index && (
-                            <div className="absolute top-2 right-2 w-4 h-4 bg-green-500 rounded-full animate-ping"></div>
+                            <div className="absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full animate-ping"></div>
                           )}
 
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                            <h3 className="text-white text-xs sm:text-sm font-semibold truncate font-secondary">
+                          {/* Video Title Section */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/90 to-transparent p-2 sm:p-3 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                            <h3 className="text-white text-xs sm:text-sm font-semibold font-secondary line-clamp-2 leading-tight">
                               {video.title}
                             </h3>
                             <div className="w-0 group-hover:w-full h-0.5 bg-amber-400 transition-all duration-500 mt-1"></div>
@@ -237,7 +240,7 @@ function WatchNow() {
 
                           {/* Selection Border Animation */}
                           {currentVideoIndex === index && (
-                            <div className="absolute inset-0 border-2 border-amber-400 rounded-lg animate-pulse"></div>
+                            <div className="absolute inset-0 border-2 border-amber-400 rounded-lg animate-pulse pointer-events-none"></div>
                           )}
                         </div>
                       </div>

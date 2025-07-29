@@ -15,7 +15,7 @@ function App() {
     }, 3000); // 3 seconds loading time
 
     // Optional: Preload critical images
-    const imagesToPreload = ["/images/logo.svg", "/images/host.png"];
+    const imagesToPreload = ["/images/logo2.png", "/images/host.png"];
 
     const preloadImages = imagesToPreload.map((src) => {
       return new Promise((resolve, reject) => {
@@ -51,7 +51,7 @@ function App() {
       <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50">
         <a
           href="/sponsors"
-          className="block bg-gradient-to-b from-[#591D0C] to-[#83461B] hover:from-[#DF2657]  hover:[#DF2657] text-white font-extrabold px-4 py-3 shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-3xl border-l-4 border-[#DF2657]"
+          className="block bg-gradient-to-b from-[#FFAA00] to-[#000000] hover:from-[#DF2657]  hover:[#DF2657] text-white font-extrabold px-4 py-3 shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-3xl border-l-4 border-[#DF2657]"
           style={{
             writingMode: "vertical-rl",
             textOrientation: "mixed",
@@ -118,7 +118,7 @@ function App() {
           {/* //THE HERO CONTENT STARTS HERE */}
           <div className="flex md:flex-row flex-col items-center justify-center h-full text-white px-2 py-8">
             <img
-              src="/images/logo.svg"
+              src="/images/logo2.png"
               alt="Host"
               className="w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl h-auto object-cover mx-auto"
             />
@@ -158,8 +158,7 @@ function App() {
 
         <p className="text-center text-white px-4 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-6 max-w-3xl mx-auto">
           A modern take on the age-old game of 20 Questions intersperses comedy
-          with common knowledge; host People's Choice Award winner Melissa
-          Peterman.
+          with common knowledge; host People's Choice Award winner Jane Luckson.
         </p>
       </section>
       {/* //BECOME A CONTESTANT SECTION */}
