@@ -15,7 +15,7 @@ function App() {
     }, 3000); // 3 seconds loading time
 
     // Optional: Preload critical images
-    const imagesToPreload = ["/images/logo2.png", "/images/host.png"];
+    const imagesToPreload = ["/images/logo.svg", "/images/host.png"];
 
     const preloadImages = imagesToPreload.map((src) => {
       return new Promise((resolve, reject) => {
@@ -118,7 +118,7 @@ function App() {
           {/* //THE HERO CONTENT STARTS HERE */}
           <div className="flex md:flex-row flex-col items-center justify-center h-full text-white px-2 py-8">
             <img
-              src="/images/logo2.png"
+              src="/images/logo.svg"
               alt="Host"
               className="w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl h-auto object-cover mx-auto"
             />

@@ -137,11 +137,11 @@ function BeAContestant() {
                 <button
                   disabled={!isValid}
                   type="submit"
-                  className=" cursor-pointer inline-block bg-amber-600 px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-black text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap mb-8"
+                  className=" cursor-pointer inline-block bg-amber-600 px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-white text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap mb-8"
                   style={{
                     clipPath:
                       "polygon(4px 0%, 100% 0%, calc(80% - 4px) 800%, 0% 80%)",
-                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.4)",
+                    // textShadow: "1px 1px 2px #fff",
                   }}
                 >
                   Apply Now
@@ -152,7 +152,7 @@ function BeAContestant() {
         </Formik>
         <div className=" right-0 absolute hidden  md:flex items-start justify-center">
           <img
-            src="/images/host.png"
+            src="/images/host22.png"
             alt="Contestant Host"
             className="h-full  w-auto object-top object-cover"
           />
