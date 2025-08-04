@@ -4,18 +4,27 @@ import WhereToWatch from "./components/WhereToWatch";
 import BeAContestant from "./components/BeAContestant";
 import WatchNow from "./components/WatchNow";
 import LoadingScreen from "./components/LoadingScreen";
+import Sponsors from "./components/Sponsors";
+import Header from "./components/Header";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState("home");
 
   useEffect(() => {
+    // Check URL for sponsors page
+    const path = window.location.pathname;
+    if (path === "/sponsors") {
+      setCurrentPage("sponsors");
+    }
+
     // Simulate loading time - you can adjust this or tie it to actual resource loading
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
     }, 3000); // 3 seconds loading time
 
     // Optional: Preload critical images
-    const imagesToPreload = ["/images/logo.svg", "/images/host.png"];
+    const imagesToPreload = ["/images/logo.png", "/images/host.png"];
 
     const preloadImages = imagesToPreload.map((src) => {
       return new Promise((resolve, reject) => {
@@ -34,23 +43,32 @@ function App() {
     return () => clearTimeout(loadingTimer);
   }, []);
 
+  // Handle navigation
+  const handleNavigation = (page: string) => {
+    setCurrentPage(page);
+    if (page === "sponsors") {
+      window.history.pushState({}, "", "/sponsors");
+    } else {
+      window.history.pushState({}, "", "/");
+    }
+  };
+
   // Show loading screen while loading
   if (isLoading) {
     return <LoadingScreen />;
   }
 
-  const headerMenu = [
-    { name: "Watch Now", link: "#watch-now" },
-    { name: "Be A Contestant", link: "#be-a-contestant" },
-    { name: "Where To Watch", link: "#where-to-watch" },
-  ];
+  // Show sponsors page
+  if (currentPage === "sponsors") {
+    return <Sponsors />;
+  }
 
   return (
     <>
       {/* Fixed Sponsors Button */}
       <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50">
-        <a
-          href="/sponsors"
+        <button
+          onClick={() => handleNavigation("sponsors")}
           className="block bg-gradient-to-b from-[#FFAA00] to-[#000000] hover:from-[#DF2657]  hover:[#DF2657] text-white font-extrabold px-4 py-3 shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-3xl border-l-4 border-[#DF2657]"
           style={{
             writingMode: "vertical-rl",
@@ -66,7 +84,7 @@ function App() {
           }}
         >
           SPONSORS
-        </a>
+        </button>
       </div>
       {/* Hero section with gradient background */}
       <section className="w-full bg-black max-w-4xl">
@@ -83,42 +101,12 @@ function App() {
           }}
         >
           <div>
-            <div className="flex justify-center items-center p-4 w-full">
-              <div className="hidden lg:block flex-1 h-1.5 bg-[#FFAA00] rounded-md w-full mr-4"></div>
-              <nav className="flex justify-center space-x-1 sm:space-x-3 lg:space-x-4 overflow-x-auto">
-                {headerMenu.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.link}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const targetId = item.link.substring(1);
-                      const targetElement = document.getElementById(targetId);
-                      if (targetElement) {
-                        targetElement.scrollIntoView({
-                          behavior: "smooth",
-                          block: "start",
-                        });
-                      }
-                    }}
-                    className="relative bg-[#FFAA00] text-white px-2 py-2 sm:px-4 sm:py-2 lg:px-8 lg:py-2 transition duration-300 text-xs sm:text-base lg:text-xl text-emphasis-700 font-extrabold border-amber-400 border-2 hover:bg-amber-500 whitespace-nowrap flex-shrink-0"
-                    style={{
-                      clipPath:
-                        "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)",
-                      textShadow: "1px 1px 2px rgba(0, 0, 0, 0.4)",
-                    }}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </nav>
-              <div className="hidden lg:block flex-1 h-1.5 bg-[#F2B700] rounded-md w-full ml-4"></div>
-            </div>
+            <Header />
           </div>
           {/* //THE HERO CONTENT STARTS HERE */}
           <div className="flex md:flex-row flex-col items-center justify-center h-full text-white px-2 py-8">
             <img
-              src="/images/logo.svg"
+              src="/images/logo.png"
               alt="Host"
               className="w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl h-auto object-cover mx-auto"
             />

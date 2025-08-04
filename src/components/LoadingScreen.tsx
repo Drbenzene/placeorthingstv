@@ -36,7 +36,7 @@ const LoadingScreen: React.FC = () => {
 
           {/* Logo */}
           <img
-            src="/images/logo.svg"
+            src="/images/logo.png"
             alt="Loading"
             className="relative z-10 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
             style={{
